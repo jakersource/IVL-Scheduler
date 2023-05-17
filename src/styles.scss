@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body { 
+    font-family: 'Avenir Next LT Pro', sans-serif; 
+}
+
+.ant-page-header-heading-title {
+    font-size: 24px !important;
+    color: rgba(0, 0, 0, 0.9) !important;
+}
