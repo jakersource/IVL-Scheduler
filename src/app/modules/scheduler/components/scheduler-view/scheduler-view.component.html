@@ -1,1 +1,49 @@
-<p>scheduler-view works!</p>
+<div class="scheduler" nz-row>
+    <div nz-col nzSpan="24" class="header-background">
+        <nz-page-header class="site-page-header" nzTitle="Find a Class">
+        </nz-page-header>
+    </div>
+    <div nz-col nzSpan="24">
+        <ul nz-list [nzDataSource]="data" nzBordered nzSize="large">
+            <div *ngFor="let item of data">
+
+                <div class="header-background">
+                    <nz-list-header class="header-date-text">{{ item.weekday }}</nz-list-header>
+                </div>
+                <li nz-list-item nzNoFlex>
+
+                    <br>
+                    <span class="time-text">{{ item.startTime }} - {{item.endTime}}</span>
+                    <span class="class-text">{{item.classTitle}} | In-Studio</span>
+
+                    <div style="float: right;">
+                        <span class="instructor-text"> {{ item.instructor }} </span>
+                        <a nz-button nzType="link"
+                            (click)="goToLink('com.ivl-collective.ivl-collective-app://Purchase')" [nzSize]="size"
+                            nzType="primary">Book</a>
+                    </div>
+
+                    <nz-collapse nzGhost>
+                        <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name"
+                            [nzActive]="panel.active" [nzDisabled]="panel.disabled">
+                            <p class="class-text-description" style="margin:0;">
+                                {{item.classTitle}} | In-Studio Description
+
+                            </p>
+
+                            <p class="class-description" style="margin:0;">
+                                {{item.description}}
+                            </p>
+
+                            <nz-divider></nz-divider>
+
+                            <a nz-button nzType="link"
+                                (click)="goToLink('com.ivl-collective.ivl-collective-app://Purchase')" [nzSize]="size"
+                                nzType="primary">Book</a>
+                        </nz-collapse-panel>
+                    </nz-collapse>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>

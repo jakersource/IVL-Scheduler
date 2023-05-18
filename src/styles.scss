@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+$header-color: rgba(0,0,0,0.03);
+
+body { 
+    font-family: 'Avenir Next', sans-serif; 
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header-background {
+    background-color: $header-color;
+}
+
+.header-date-text {
+    font-size: 18px;
+    color: rgba(0,0,0,0.8);
+}
+
+.time-text {
+    margin-right: 56px;
+    font-size: 18px;
+    color: black; 
+    line-height: 24px;
+}
+
+.class-text {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.class-text-description {
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(0,0,0,0.9);
+    margin-bottom: 8px !important;
+}
+
+.class-description {
+    font-size: 16px;
+    line-height: 22px;
+    color: rgba(0,0,0,0.65);
+}
+
+.instructor-text {
+    font-size: 18px; text-align: left; color: rgba(0,0,0,0.55);
+    margin-right: 32px;
+}
+
+.ant-page-header-heading-title {
+    font-size: 24px !important;
+    color: rgba(0, 0, 0, 0.9) !important;
+}
+
+
+.ant-collapse>.ant-collapse-item>.ant-collapse-header {
+    color: #e5c3c3;font-size: 16px;
+}
+
+.scheduler [nz-button] {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border: 1px solid black;;
+    transition: background-color 300ms ease, color 300ms ease;
+}
+
+.scheduler .ant-btn:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
