@@ -9,14 +9,12 @@ export class DeeplinkService {
     let app = {
       launchApp: function () {
         setTimeout(function () {
-          window.location.href =
-            'https://apps.apple.com/ar/app/studio-by-ivl/id1597374060';
+          window.open('https://apps.apple.com/ar/app/studio-by-ivl/id1597374060', '_blank');
         }, 25);
-        window.location.href = 'com.ivl-collective.ivl-collective-app://Home'; //which page to open(now from mobile, check its authorization)
+        window.location.href = 'com.ivl-collective.ivl-collective-app://Home';
       },
       openWebApp: function () {
-        window.location.href =
-          'https://apps.apple.com/ar/app/studio-by-ivl/id1597374060';
+        window.open('https://apps.apple.com/ar/app/studio-by-ivl/id1597374060', '_blank');
       },
     };
     app.launchApp();
