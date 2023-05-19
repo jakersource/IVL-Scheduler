@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import { NzButtonSize } from 'ng-zorro-antd/button';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { DeeplinkService } from '../../services/deeplink.service';
 import { SchedulerService } from '../../services/scheduler.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class SchedulerViewComponent implements OnInit {
   size: NzButtonSize = 'large';
   destroyed$ = new Subject<void>();
 
-  constructor(private schedulerService: SchedulerService) {}
+  constructor(private schedulerService: SchedulerService, private deeplinkService : DeeplinkService) {}
 
   ngOnInit(): void {
     this.getClasses();
@@ -52,17 +53,7 @@ export class SchedulerViewComponent implements OnInit {
       });
   }
 
-  groupBy(arr: any, property: any) {
-    return arr.reduce(function (memo: any, x: any) {
-      if (!memo[x[property]]) {
-        memo[x[property]] = [];
-      }
-      memo[x[property]].push(x);
-      return memo;
-    }, {});
-  }
-
-  goToLink(url: string) {
-    window.open(url, '_blank');
+  handleGoToLink() {
+    this.deeplinkService.deeplink();
   }
 }
