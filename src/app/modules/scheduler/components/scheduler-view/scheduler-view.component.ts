@@ -53,7 +53,7 @@ export class SchedulerViewComponent implements OnInit {
       });
   }
 
-  handleGoToLink() {
-    this.deeplinkService.deeplink();
+  handleGoToLink(id: string) {
+    this.deeplinkService.deeplink(id);
   }
 }
