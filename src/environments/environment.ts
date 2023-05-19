@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false
+  , apiUrl: "https://ivl-collective-backend.herokuapp.com/get-classes-data"
 };
 
 /*

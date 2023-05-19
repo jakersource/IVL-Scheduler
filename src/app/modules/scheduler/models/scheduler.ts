@@ -3,7 +3,7 @@ export interface Scheduler {
     id: string,
     description: string,
     instructor: string,
-    startTime: string,
-    endTime: string,
+    startTime: any,
+    endTime: any,
     weekday: string
 }
