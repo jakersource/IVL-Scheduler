@@ -12,9 +12,10 @@ export class DeeplinkService {
     if (isIphone) {
       let app = {
         launchApp: function () {
-          window.location.href =
-            'com.ivl-collective.ivl-collective-app://ClassDetails?classId=' +
-            id;
+          window.open(
+            'com.ivl-collective.ivl-collective-app://ClassDetails?classId=' + id,
+            '_blank'
+          );
         }
       };
       app.launchApp();
