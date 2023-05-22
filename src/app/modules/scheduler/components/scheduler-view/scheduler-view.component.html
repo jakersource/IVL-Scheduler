@@ -1,7 +1,32 @@
 <div class="scheduler" nz-row>
     <div nz-col nzSpan="24" class="header-background">
-        <nz-page-header class="site-page-header" nzTitle="Find a Class">
-        </nz-page-header>
+        <nz-collapse [nzExpandIconPosition]="expandIconPosition" style="background-color: rgba(0,0,0,0.03);">
+            <nz-collapse-panel *ngFor="let panel of collapse" [nzHeader]="panel.name" [nzActive]="panel.active"
+                [nzExtra]="extraTpl" [nzDisabled]="panel.disabled" [nzShowArrow]="false">
+
+                <div nz-row>
+
+                    <div nz-col nzSpan="4">
+                        <nz-select nzAllowClear nzPlaceHolder="All classes" [nzSize]="sizeSelect" [(ngModel)]="claseObj" (ngModelChange)="changeClasses($event)">
+                            <nz-option *ngFor="let option of classesFilter" [nzLabel]="option" [nzValue]="option">
+                            </nz-option>
+                        </nz-select>
+                    </div>
+
+                    <!-- <div nz-col nzSpan="4">
+                        <nz-select nzAllowClear nzPlaceHolder="All instructors" [nzSize]="sizeSelect">
+                            <nz-option *ngFor="let option of instructorsFilter" [nzLabel]="option" [nzValue]="option">
+                            </nz-option>
+                        </nz-select>
+                    </div> -->
+
+                </div>
+
+            </nz-collapse-panel>
+        </nz-collapse>
+        <ng-template #extraTpl>
+            <span nz-icon nzType="filter"></span>
+        </ng-template>
     </div>
     <div nz-col nzSpan="24">
         <div *ngFor="let wd of weekdayArray ">
@@ -60,8 +85,7 @@
 
                         <div style="float: right;">
                             <span class="instructor-text"> {{ item.instructor }} </span>
-                            <a nz-button nzType="link"
-                                (click)="handleGoToLink(item.id)" [nzSize]="size"
+                            <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
                                 nzType="primary">Book</a>
                         </div>
 
@@ -79,9 +103,8 @@
 
                                 <nz-divider></nz-divider>
 
-                                <a nz-button nzType="link"
-                                    (click)="handleGoToLink(item.id)"
-                                    [nzSize]="size" nzType="primary">Book</a>
+                                <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
+                                    nzType="primary">Book</a>
                             </nz-collapse-panel>
                         </nz-collapse>
                     </li>
@@ -102,8 +125,7 @@
 
                         <div style="float: right;">
                             <span class="instructor-text"> {{ item.instructor }} </span>
-                            <a nz-button nzType="link"
-                                (click)="handleGoToLink(item.id)" [nzSize]="size"
+                            <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
                                 nzType="primary">Book</a>
                         </div>
 
@@ -121,9 +143,8 @@
 
                                 <nz-divider></nz-divider>
 
-                                <a nz-button nzType="link"
-                                    (click)="handleGoToLink(item.id)"
-                                    [nzSize]="size" nzType="primary">Book</a>
+                                <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
+                                    nzType="primary">Book</a>
                             </nz-collapse-panel>
                         </nz-collapse>
                     </li>
@@ -144,8 +165,7 @@
 
                         <div style="float: right;">
                             <span class="instructor-text"> {{ item.instructor }} </span>
-                            <a nz-button nzType="link"
-                                (click)="handleGoToLink(item.id)" [nzSize]="size"
+                            <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
                                 nzType="primary">Book</a>
                         </div>
 
@@ -163,9 +183,8 @@
 
                                 <nz-divider></nz-divider>
 
-                                <a nz-button nzType="link"
-                                    (click)="handleGoToLink(item.id)"
-                                    [nzSize]="size" nzType="primary">Book</a>
+                                <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
+                                    nzType="primary">Book</a>
                             </nz-collapse-panel>
                         </nz-collapse>
                     </li>
@@ -186,8 +205,7 @@
 
                         <div style="float: right;">
                             <span class="instructor-text"> {{ item.instructor }} </span>
-                            <a nz-button nzType="link"
-                                (click)="handleGoToLink(item.id)" [nzSize]="size"
+                            <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
                                 nzType="primary">Book</a>
                         </div>
 
@@ -205,9 +223,8 @@
 
                                 <nz-divider></nz-divider>
 
-                                <a nz-button nzType="link"
-                                    (click)="handleGoToLink(item.id)"
-                                    [nzSize]="size" nzType="primary">Book</a>
+                                <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
+                                    nzType="primary">Book</a>
                             </nz-collapse-panel>
                         </nz-collapse>
                     </li>
@@ -228,8 +245,7 @@
 
                         <div style="float: right;">
                             <span class="instructor-text"> {{ item.instructor }} </span>
-                            <a nz-button nzType="link"
-                                (click)="handleGoToLink(item.id)" [nzSize]="size"
+                            <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
                                 nzType="primary">Book</a>
                         </div>
 
@@ -247,9 +263,8 @@
 
                                 <nz-divider></nz-divider>
 
-                                <a nz-button nzType="link"
-                                    (click)="handleGoToLink(item.id)"
-                                    [nzSize]="size" nzType="primary">Book</a>
+                                <a nz-button nzType="link" (click)="handleGoToLink(item.id)" [nzSize]="size"
+                                    nzType="primary">Book</a>
                             </nz-collapse-panel>
                         </nz-collapse>
                     </li>
