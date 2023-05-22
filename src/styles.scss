@@ -55,6 +55,19 @@ body {
     color: #e5c3c3;font-size: 16px;
 }
 
+.header-background .ant-collapse>.ant-collapse-item>.ant-collapse-header {
+    font-size: 22px !important;
+    color: rgba(0, 0, 0, 0.9) !important;
+    margin-right: 12px;
+    margin-bottom: 0;
+    font-weight: 600;
+    line-height: 32px;
+    padding: 20px 32px 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .scheduler [nz-button] {
     background-color: black;
     color: white;
@@ -71,4 +84,12 @@ body {
 
 .list-striped {
     background-color: #FCFCFC;
+}
+
+[nz-icon] {
+    font-size: 22px;
+}
+
+nz-select {
+    width: 200px;
 }
