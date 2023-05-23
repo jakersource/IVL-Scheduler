@@ -119,4 +119,12 @@ export class SchedulerViewComponent implements OnInit {
       (el: { classTitle: any }) => el.classTitle === classTitle
     );
   }
+
+  reset() {
+    const result = _.mapValues(
+      _.groupBy(this.schedulerArrayWithoutChange, 'weekday')
+    );
+    this.classes = result;
+    this.claseObj = null;
+  }
 }

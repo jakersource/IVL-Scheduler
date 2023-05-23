@@ -1,4 +1,4 @@
-<div class="scheduler" nz-row>
+<div nz-row>
     <div nz-col nzSpan="24" class="header-background">
         <nz-collapse [nzExpandIconPosition]="expandIconPosition" style="background-color: rgba(0,0,0,0.03);">
             <nz-collapse-panel *ngFor="let panel of collapse" [nzHeader]="panel.name" [nzActive]="panel.active"
@@ -6,8 +6,9 @@
 
                 <div nz-row>
 
-                    <div nz-col nzSpan="4">
-                        <nz-select nzAllowClear nzPlaceHolder="All classes" [nzSize]="sizeSelect" [(ngModel)]="claseObj" (ngModelChange)="changeClasses($event)">
+                    <div nz-col nzSpan="8">
+                        <nz-select nzPlaceHolder="All classes" [nzSize]="sizeSelect" [(ngModel)]="claseObj"
+                            (ngModelChange)="changeClasses($event)" #selectClasses>
                             <nz-option *ngFor="let option of classesFilter" [nzLabel]="option" [nzValue]="option">
                             </nz-option>
                         </nz-select>
@@ -20,6 +21,10 @@
                         </nz-select>
                     </div> -->
 
+                    <div nz-col nzSpan="4" nzOffset="12">
+                        <button style="float: right;" (click)="reset()"  [nzSize]="size" nz-button nzType="text">Reset</button>
+                    </div>
+
                 </div>
 
             </nz-collapse-panel>
@@ -28,7 +33,7 @@
             <span nz-icon nzType="filter"></span>
         </ng-template>
     </div>
-    <div nz-col nzSpan="24">
+    <div class="scheduler" nz-col nzSpan="24">
         <div *ngFor="let wd of weekdayArray ">
 
             <ul nz-list [nzDataSource]="classes.Monday" nzBordered nzSize="large" *ngIf="wd === 'Monday'">
