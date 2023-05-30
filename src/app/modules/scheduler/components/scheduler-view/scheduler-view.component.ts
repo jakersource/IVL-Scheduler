@@ -111,7 +111,7 @@ export class SchedulerViewComponent implements OnInit {
 
       schedulerArray = this.getMatches(classes, schedulerInstructorArray);
     } else {
-      if (classes) {
+      if (classes.length > 0) {
         schedulerArray = this.getMatches(
           classes,
           this.schedulerArrayWithoutChange
@@ -141,7 +141,7 @@ export class SchedulerViewComponent implements OnInit {
         schedulerClassesArray
       );
     } else {
-      if (instructor) {
+      if (instructor.length > 0) {
         schedulerArray = this.getMatchesInstructor(
           instructor,
           this.schedulerArrayWithoutChange
