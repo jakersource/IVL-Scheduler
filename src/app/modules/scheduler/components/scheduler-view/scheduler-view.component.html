@@ -6,7 +6,7 @@
 
                 <div nz-row>
 
-                    <div nz-col nzSpan="8">
+                    <div nz-col nzSpan="3">
                         <nz-select nzPlaceHolder="All classes" [nzSize]="sizeSelect" [(ngModel)]="claseObj"
                             (ngModelChange)="changeClasses($event)" #selectClasses>
                             <nz-option *ngFor="let option of classesFilter" [nzLabel]="option" [nzValue]="option">
@@ -14,14 +14,15 @@
                         </nz-select>
                     </div>
 
-                    <!-- <div nz-col nzSpan="4">
-                        <nz-select nzAllowClear nzPlaceHolder="All instructors" [nzSize]="sizeSelect">
+                    <div nz-col nzSpan="3">
+                        <nz-select nzPlaceHolder="All instructors" [nzSize]="sizeSelect" [(ngModel)]="instructorObj"
+                         (ngModelChange)="changeInstructor($event)" #selectInstructos>
                             <nz-option *ngFor="let option of instructorsFilter" [nzLabel]="option" [nzValue]="option">
                             </nz-option>
                         </nz-select>
-                    </div> -->
+                    </div>
 
-                    <div nz-col nzSpan="4" nzOffset="12">
+                    <div nz-col nzSpan="4" nzOffset="14">
                         <button style="float: right;" (click)="reset()"  [nzSize]="size" nz-button nzType="text">Reset</button>
                     </div>
 
