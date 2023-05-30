@@ -96,18 +96,59 @@ export class SchedulerViewComponent implements OnInit {
 
   claseObj: any = {};
 
+  instructorObj: any = {};
+
   changeClasses(classes: any) {
     this.claseObj = classes;
 
     let schedulerArray;
 
-    if (classes) {
-      schedulerArray = this.getMatches(
-        classes,
+    if (this.instructorObj && this.instructorObj.length > 0) {
+      const schedulerInstructorArray = this.getMatchesInstructor(
+        this.instructorObj,
         this.schedulerArrayWithoutChange
       );
+
+      schedulerArray = this.getMatches(classes, schedulerInstructorArray);
     } else {
-      schedulerArray = this.schedulerArrayWithoutChange;
+      if (classes) {
+        schedulerArray = this.getMatches(
+          classes,
+          this.schedulerArrayWithoutChange
+        );
+      } else {
+        schedulerArray = this.schedulerArrayWithoutChange;
+      }
+    }
+
+    const result = _.mapValues(_.groupBy(schedulerArray, 'weekday'));
+    this.classes = result;
+  }
+
+  changeInstructor(instructor: any) {
+    this.instructorObj = instructor;
+
+    let schedulerArray;
+
+    if (this.claseObj && this.claseObj.length > 0) {
+      const schedulerClassesArray = this.getMatches(
+        this.claseObj,
+        this.schedulerArrayWithoutChange
+      );
+
+      schedulerArray = this.getMatchesInstructor(
+        instructor,
+        schedulerClassesArray
+      );
+    } else {
+      if (instructor) {
+        schedulerArray = this.getMatchesInstructor(
+          instructor,
+          this.schedulerArrayWithoutChange
+        );
+      } else {
+        schedulerArray = this.schedulerArrayWithoutChange;
+      }
     }
 
     const result = _.mapValues(_.groupBy(schedulerArray, 'weekday'));
@@ -120,11 +161,18 @@ export class SchedulerViewComponent implements OnInit {
     );
   }
 
+  getMatchesInstructor(instructorName: any, array: any[]) {
+    return array.filter(
+      (el: { instructor: any }) => el.instructor === instructorName
+    );
+  }
+
   reset() {
     const result = _.mapValues(
       _.groupBy(this.schedulerArrayWithoutChange, 'weekday')
     );
     this.classes = result;
     this.claseObj = null;
+    this.instructorObj = null;
   }
 }
