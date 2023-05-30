@@ -34,8 +34,8 @@
             <span nz-icon nzType="filter"></span>
         </ng-template>
     </div>
-    <div class="scheduler" nz-col nzSpan="24">
-        <div *ngFor="let wd of weekdayArray ">
+    <div class="scheduler" nz-col nzSpan="24" *ngIf="classes.Monday || classes.Tuesday || classes.Wednesday || classes.Thursday || classes.Friday || classes.Saturday">
+        <div *ngFor="let wd of weekdayArray">
 
             <ul nz-list [nzDataSource]="classes.Monday" nzBordered nzSize="large" *ngIf="wd === 'Monday'">
                 <div *ngFor="let item of classes.Monday; let indexOfelement = index;">
@@ -278,5 +278,14 @@
             </ul>
 
         </div>
+    </div>
+
+    <div class="scheduler" nz-col nzSpan="24" *ngIf="!classes.Monday && !classes.Tuesday && !classes.Wednesday && !classes.Thursday && !classes.Friday && !classes.Saturday" style="text-align: center; margin-top: 50px;">
+        <span class="not-found">We looked, but we didn't find anything available based on your search.</span>
+        <br>
+        <span class="not-found-subtext">Try another day or</span>
+        <br>
+        <button (click)="reset()"  [nzSize]="size" nz-button class="block-button" nzType="text">Reset filters</button>
+
     </div>
 </div>

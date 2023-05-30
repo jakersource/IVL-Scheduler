@@ -111,7 +111,7 @@ export class SchedulerViewComponent implements OnInit {
 
       schedulerArray = this.getMatches(classes, schedulerInstructorArray);
     } else {
-      if (classes.length > 0) {
+      if (classes) {
         schedulerArray = this.getMatches(
           classes,
           this.schedulerArrayWithoutChange
@@ -141,7 +141,7 @@ export class SchedulerViewComponent implements OnInit {
         schedulerClassesArray
       );
     } else {
-      if (instructor.length > 0) {
+      if (instructor) {
         schedulerArray = this.getMatchesInstructor(
           instructor,
           this.schedulerArrayWithoutChange
@@ -175,4 +175,15 @@ export class SchedulerViewComponent implements OnInit {
     this.claseObj = null;
     this.instructorObj = null;
   }
+
+  // d = new Date();
+  // timezone = d.getTimezoneOffset();
+
+  // timezoneHourConverter = (timezone: number) => {
+  //   if (timezone) {
+  //     if (timezone === 0) return 6;
+  //     return 6 - timezone / 60;
+  //   }
+  //   return 0;
+  // };
 }
