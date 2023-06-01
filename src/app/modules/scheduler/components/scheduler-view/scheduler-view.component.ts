@@ -25,6 +25,7 @@ export class SchedulerViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClasses();
+    this.resize();
   }
 
   expandIconPosition: 'left' | 'right' = 'left';
@@ -88,6 +89,18 @@ export class SchedulerViewComponent implements OnInit {
         const result = _.mapValues(_.groupBy(schedulerArray, 'weekday'));
         this.classes = result;
       });
+  }
+
+  resize() {
+    window.addEventListener('message', function (event) {
+      if (
+        event.origin === 'https://ketta-store.myshopify.com/' &&
+        event.data === 'getIframeHeight'
+      ) {
+        var height = document.body.scrollHeight;
+        parent.postMessage(height, 'https://ketta-store.myshopify.com/');
+      }
+    });
   }
 
   handleGoToLink(id: string) {
@@ -175,15 +188,4 @@ export class SchedulerViewComponent implements OnInit {
     this.claseObj = null;
     this.instructorObj = null;
   }
-
-  // d = new Date();
-  // timezone = d.getTimezoneOffset();
-
-  // timezoneHourConverter = (timezone: number) => {
-  //   if (timezone) {
-  //     if (timezone === 0) return 6;
-  //     return 6 - timezone / 60;
-  //   }
-  //   return 0;
-  // };
 }
